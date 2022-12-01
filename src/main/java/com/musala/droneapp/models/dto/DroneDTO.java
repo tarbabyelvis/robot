@@ -1,6 +1,5 @@
 package com.musala.droneapp.models.dto;
 
-import com.musala.droneapp.models.entity.Medication;
 import com.musala.droneapp.models.enums.Model;
 import com.musala.droneapp.models.enums.State;
 
@@ -16,6 +15,6 @@ public record DroneDTO(
         double weight,
         double batteryCapacity,
         State state,
-        Set<Medication> medications
+        Set<MedicationDTO> medications
 ) {
 }

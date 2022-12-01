@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class Medication extends BaseEntity{
-    @Pattern(regexp = "[\\w\\d_-]+",message = "Error on code validation")
+    @Pattern(regexp = "[\\w\\d_-]+",message = "Error on name validation")
     private String name;
     private double weight;
     @Pattern(regexp = "[A-Z\\d_]+",message = "Error on code validation")

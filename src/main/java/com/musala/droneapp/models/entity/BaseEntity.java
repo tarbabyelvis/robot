@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 public abstract class BaseEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", insertable = false, nullable = false, updatable = false)
     private Long id;
 

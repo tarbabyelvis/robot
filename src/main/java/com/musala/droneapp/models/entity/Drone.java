@@ -29,6 +29,6 @@ public class Drone extends BaseEntity {
     private double batteryCapacity;
     @Enumerated(EnumType.STRING)
     private State state = State.IDLE;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Medication> medications = new HashSet<>();
 }

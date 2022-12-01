@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class DispatchController {
     private final MedicationConvertor medicationConvertor;
 
     @PostMapping("/register")
-    public ResponseEntity<DroneDTO> register(@RequestBody DroneDTO droneDTO) {
+    public ResponseEntity<DroneDTO> register(@Validated @RequestBody DroneDTO droneDTO) {
         log.debug("register drone {}", droneDTO);
         Drone registeredDrone = service.register(droneDTO)
                 .orElseThrow(() -> new RuntimeException("Failed to register drone"));
@@ -33,7 +34,7 @@ public class DispatchController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<DroneDTO> update(@RequestBody DroneDTO droneDTO) {
+    public ResponseEntity<DroneDTO> update(@Validated @RequestBody DroneDTO droneDTO) {
         log.debug("update drone {}", droneDTO);
         Drone updated = service.update(droneDTO)
                 .orElseThrow(() -> new RuntimeException("Failed to update drone"));
@@ -41,7 +42,7 @@ public class DispatchController {
     }
 
     @PutMapping("/load/{serial}")
-    public ResponseEntity<DroneDTO> loadDrone(@PathVariable String serial, @RequestBody List<MedicationDTO> medications) {
+    public ResponseEntity<DroneDTO> loadDrone(@PathVariable String serial, @Validated @RequestBody List<MedicationDTO> medications) {
         log.debug("Loading drone {} with medications", serial);
         Drone loadedDrone = service.loadDrone(serial, medications)
                 .orElseThrow(() -> new RuntimeException("Failed to load drone"));
