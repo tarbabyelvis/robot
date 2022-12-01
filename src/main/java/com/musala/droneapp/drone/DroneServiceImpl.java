@@ -121,4 +121,10 @@ public class DroneServiceImpl implements DroneService {
     public Optional<Drone> findBySerial(String serial) {
         return repo.findBySerial(serial);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Drone> findAll() {
+        return repo.findAll();
+    }
 }

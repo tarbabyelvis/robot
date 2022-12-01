@@ -4,7 +4,9 @@ import com.musala.droneapp.models.enums.Model;
 import com.musala.droneapp.models.enums.State;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMax;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +15,9 @@ import java.util.Set;
  * @Author Tarbaby Elvis Banda on 30/11/2022
  **/
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Drone extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String serial;

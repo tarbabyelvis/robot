@@ -21,4 +21,5 @@ public interface DroneService {
     double checkBatteryLevel(String serial);
 
     Optional<Drone> findBySerial(String serial);
+    List<Drone> findAll();
 }
